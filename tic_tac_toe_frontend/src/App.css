@@ -58,6 +58,94 @@
   transition: color 0.3s ease;
 }
 
+/* --- Tic Tac Toe styling --- */
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 56px);
+  grid-template-rows: repeat(3, 56px);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.ttt-cell {
+  width: 56px;
+  height: 56px;
+  font-size: 2em;
+  font-weight: bold;
+  background: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background .2s, color .2s, border .2s;
+}
+.ttt-cell:hover:not(:disabled) {
+  background: var(--bg-secondary);
+  border-color: var(--text-secondary);
+}
+.ttt-cell:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ttt-cell.win {
+  background: #ffe0b2;
+  color: #388e3c;
+  border: 2.5px solid #388e3c;
+}
+
+.ttt-status {
+  margin: 8px 0 0 0;
+}
+
+.ttt-btn {
+  font-size: 1em;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background .2s;
+}
+.ttt-btn:hover:not(:disabled) {
+  opacity: 0.87;
+  background: #0056b3;
+}
+.ttt-btn:active {
+  transform: translateY(1px);
+}
+.ttt-btn:disabled {
+  opacity: 0.67;
+}
+
+/* Error style */
+.ttt-error {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px) {
+  .ttt-board {
+    grid-template-columns: repeat(3, 36px);
+    grid-template-rows: repeat(3, 36px);
+    gap: 5px;
+  }
+  .ttt-cell {
+    font-size: 1.3em;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    padding: 0;
+  }
+  .App-header {
+    font-size: calc(8px + 2vmin);
+    padding: 0;
+  }
+}
+
 .theme-toggle {
   position: absolute;
   top: 20px;
